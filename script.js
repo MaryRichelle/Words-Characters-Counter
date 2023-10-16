@@ -5,13 +5,12 @@ window.addEventListener("DOMContentLoaded", init)
 function init(){
 
 const textArea = document.getElementById("user-input");
+textArea.disabled = true;
 const totalCounter = document.getElementById("counter");
-const wordCount = document.getElementById("word-count");
 const remainingWords = document.getElementById("remaining-words");
 const wordCounterBtn = document.getElementById("word-counter");
 const characterCounterBtn = document.getElementById("count-characters");
 const description = document.getElementById("description");
-console.log(wordCount);
 
 function characterCounterDescription(status) {
   description.innerText = `Counting ${status}.........`;
@@ -19,13 +18,14 @@ function characterCounterDescription(status) {
 }
 
 function updateCharacterCount() {
+  textArea.disabled = false;
   const inputText = textArea.value;
   const characterCount = inputText.length;
   totalCounter.innerText = characterCount;
-  const remainingCharacters = 100 - characterCount;
+  const remainingCharacters = 2000 - characterCount;
   remainingWords.innerText = remainingCharacters;
 
-  if (remainingCharacters <= 5 || remainingCharacters >= 50) {
+  if (remainingCharacters <= 5 || remainingCharacters >= 20) {
     textArea.style.borderColor = "red";
     remainingWords.style.color = "red";
   } else {
@@ -46,6 +46,8 @@ function countWords() {
 }
 
 function updateWordCount() {
+  textArea.disabled = false;
+
   const inputText = textArea.value;
   const words = inputText.split(/\s+/).filter(word => word !== '');
   const wordCountValue = words.length;
