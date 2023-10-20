@@ -1,83 +1,80 @@
 
 window.addEventListener("DOMContentLoaded", init)
-
-
-function init(){
-
-const textArea = document.getElementById("user-input");
-textArea.disabled = true;
-const totalCounter = document.getElementById("counter");
-const remainingWords = document.getElementById("remaining-words");
-const wordCounterBtn = document.getElementById("word-counter");
-const characterCounterBtn = document.getElementById("count-characters");
-const description = document.getElementById("description");
-
-function characterCounterDescription(status) {
-  description.innerText = `Counting ${status}.........`;
-  textArea.addEventListener("input", updateCharacterCount);
-}
-
-function updateCharacterCount() {
-  textArea.disabled = false;
-  const inputText = textArea.value;
-  const characterCount = inputText.length;
-  totalCounter.innerText = characterCount;
-  const remainingCharacters = 2000 - characterCount;
-  remainingWords.innerText = remainingCharacters;
-
-  if (remainingCharacters <= 5 || remainingCharacters >= 20) {
-    textArea.style.borderColor = "red";
-    remainingWords.style.color = "red";
-  } else {
-    textArea.style.borderColor = "";
-    remaining.style.color = "";
-  }
-
-  if (remainingCharacters >= 494) {
-    totalCounter.style.color = "red";
-  } else {
-    totalCounter.style.color = "";
-  }
-}
-
-function countWords() {
-  description.innerText = "Counting Words......";
-  textArea.addEventListener("input", updateWordCount);
-}
-
-function updateWordCount() {
-  textArea.disabled = false;
-
-  const inputText = textArea.value;
-  const words = inputText.split(/\s+/).filter(word => word !== '');
-  const wordCountValue = words.length;
-  console.log(wordCountValue);
-  totalCounter.innerText = wordCountValue;
-  const remainingWordCount = 1000 - wordCountValue;
+const remaining = (counterValue) => {
+  const remainingWords = document.getElementById("remaining-words");
+  const remainingWordCount = 2000 - counterValue;
   remainingWords.innerText = remainingWordCount;
 }
+const displayUpdateFun = (countValue) => {
+  const totalCounter = document.getElementById("counter");
+  totalCounter.innerText = countValue;
+}
 
-wordCounterBtn.addEventListener("click", () => {
-  
-  characterCounterBtn.disabled = false;
-  characterCounterBtn.style.backgroundColor="#f1eded"
-  characterCounterBtn.style.color="#aba9a9"
-  wordCounterBtn.disabled = true;
-  textArea.value = '';
-  characterCounterDescription("Words")
+function counterDescription(status) {
+  const description = document.getElementById("description");
+  description.innerText = `Counting ${status}.........`;
+}
+
+const disabledBtnFun = (btnToFunction, btnToDisable) => {
+  btnToFunction.disabled = true;
+  btnToDisable.disabled = false;
+  btnToDisable.style.backgroundColor = "#f1eded"
+  btnToDisable.style.color = "#aba9a9"
+}
+
+
+
+
+function init() {
+  const textArea = document.getElementById("user-input");
+  textArea.disabled = true;
+  const wordCounterBtn = document.getElementById("word-counter");
+  const characterCounterBtn = document.getElementById("count-characters");
+
+
+  const textAreaValue = () => {
+    const inputText = textArea.value;
+    return inputText
+  }
+  const enableTextArea=()=>{
+    textArea.disabled = false;
+    textArea.value = '';
+  }
+
+  function updateWordCount() {
+    const textValue = textAreaValue();
+    const words = textValue.split(' ');
+    const filteredWords = words.filter(word => word.trim() !== '');
+    const wordCountValue = filteredWords.length;
+    displayUpdateFun(wordCountValue);
+    remaining(wordCountValue);
+  }
+
+
+  function updateCharacterCount() {
+    const textValue = textAreaValue()
+    const characterCount = textValue.length;
+    displayUpdateFun(characterCount)
+    remaining(characterCount)
+  }
+
+
+  // click events on buttons
+  wordCounterBtn.addEventListener("click", () => {
+    enableTextArea()
+    disabledBtnFun(characterCounterBtn, wordCounterBtn)
     updateWordCount();
-  countWords();
-});
+    counterDescription("Words")
+    textArea.addEventListener("input", updateWordCount);
+  });
 
-characterCounterBtn.addEventListener("click", () => {
-  characterCounterBtn.disabled = true;
-  wordCounterBtn.disabled = false;
-  wordCounterBtn.style.backgroundColor = "#f1eded"
-  wordCounterBtn.style.color = "#aba9a9"
-  textArea.value = '';
-  updateCharacterCount();
-  updateWordCount();
-  characterCounterDescription("Characters")
-});
+
+
+  characterCounterBtn.addEventListener("click", () => {
+    enableTextArea()
+    disabledBtnFun(characterCounterBtn, wordCounterBtn)
+    textArea.addEventListener("input", updateCharacterCount);
+    counterDescription("Characters")
+  });
 
 }
