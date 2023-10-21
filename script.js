@@ -1,25 +1,30 @@
 
 window.addEventListener("DOMContentLoaded", init)
+
 const remaining = (counterValue) => {
   const remainingWords = document.getElementById("remaining-words");
   const remainingWordCount = 2000 - counterValue;
   remainingWords.innerText = remainingWordCount;
 }
+
 const displayUpdateFun = (countValue) => {
   const totalCounter = document.getElementById("counter");
   totalCounter.innerText = countValue;
 }
 
+
 function counterDescription(status) {
   const description = document.getElementById("description");
+  description.style.visibility = "visible"
   description.innerText = `Counting ${status}.........`;
 }
 
 const disabledBtnFun = (btnToFunction, btnToDisable) => {
-  btnToFunction.disabled = true;
-  btnToDisable.disabled = false;
-  btnToDisable.style.backgroundColor = "#f1eded"
-  btnToDisable.style.color = "#aba9a9"
+  btnToFunction.disabled = false;
+  btnToDisable.disabled = true;
+  btnToDisable.style.backgroundColor = "#686666"
+  btnToDisable.style.color = "#4f4e4e"
+  btnToDisable.style.cursor = "initial"
 }
 
 
@@ -36,7 +41,7 @@ function init() {
     const inputText = textArea.value;
     return inputText
   }
-  const enableTextArea=()=>{
+  const enableTextArea = () => {
     textArea.disabled = false;
     textArea.value = '';
   }
@@ -62,7 +67,7 @@ function init() {
   // click events on buttons
   wordCounterBtn.addEventListener("click", () => {
     enableTextArea()
-    disabledBtnFun(characterCounterBtn, wordCounterBtn)
+    disabledBtnFun(wordCounterBtn, characterCounterBtn)
     updateWordCount();
     counterDescription("Words")
     textArea.addEventListener("input", updateWordCount);

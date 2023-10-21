@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Character Counter</title>
-  </head>
-  <body>
-    <main>
-      <h1>Real Time Character/Word Counter</h1>
-      <aside>
-        <button id="count-characters">Count Characters</button>
-        <button type="button" id="word-counter">Count Words</button>
-      </aside>
-      <p id="description"></p>
-      <form action="" id="form">
-        <textarea
-          type="text"
-          rows="15"
-          cols="50"
-          id="user-input"
-          placeholder="write your text here.........................
-          "
-        > 
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Character Counter</title>
+</head>
+
+<body>
+  <h1>Real Time Character/Word Counter</h1>
+  <main>
+    <aside>
+      <button id="count-characters">Count Characters</button>
+      <button type="button" id="word-counter">Count Words</button>
+    </aside>
+    <p id="description">visibility</p>
+    <form action="" id="form">
+      <textarea type="text" rows="15" cols="50" id="user-input" placeholder="write your text here.........................
+          ">
         </textarea>
-      </form>
-      <section>
-        <p id="total-written">Total Written <span id="counter">0</span></p>
-        <p id="character-remaining">
-          Total Remaining<span id="remaining-words">2000</span>
-        </p>
-      </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    </form>
+    <section>
+      <p id="total-written">Total Written <span id="counter">0</span></p>
+      <p id="character-remaining">
+        Total Remaining<span id="remaining-words">2000</span>
+      </p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
 </html>
