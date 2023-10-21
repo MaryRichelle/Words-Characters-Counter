@@ -11,8 +11,13 @@ h1 {
   color: white;
 }
 main {
-  width: 50vw;
+  width: 100%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2rem;
+  padding-block: 0.5rem;
   background-color: inherit;
   border-radius: 6px;
   color: #fff;
@@ -21,6 +26,7 @@ main {
   border: 8px solid;
   border-image: linear-gradient(to right, #5ddcff, #3c67e3, #4e00c2) 5;
   border-radius: 4px;
+  font-size: 1.8rem;
 }
 
 main::after {
@@ -56,19 +62,18 @@ main:hover:after {
   height: 3rem;
   color: #fff;
   margin-top: 3%;
-  font-size: 1.3rem;
   text-align: center;
   border: 2px solid #5ddcff;
   border-radius: 15px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  font-size: 1rem;
 }
 textarea {
   width: 80%;
   margin: auto;
   display: grid;
   background: inherit;
-  font-size: 20px;
   margin-top: 5%;
   border-radius: 10px;
   font-style: italic;
@@ -84,24 +89,15 @@ aside {
 }
 #description {
   text-align: center;
-  font-size: 1.5rem;
   margin-top: 3%;
   font-weight: bold;
   visibility: hidden;
 }
-#character-remaining {
+.results {
   margin-top: 5%;
-  padding: 5px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
-#total-written {
-  margin-top: 5%;
-  padding: 10px;
-  font-size: 1.5rem;
-}
-span {
-  padding: 10px;
-}
+
 
 @keyframes spin {
   0% {
@@ -110,5 +106,13 @@ span {
     transform: rotate(0deg);
 
     transform: rotate(360deg);
+  }
+}
+@media screen and (min-width: 760px) {
+  main {
+    width: 60%;
+  }
+  .results{
+    font-size: 1.8rem;
   }
 }
