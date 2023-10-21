@@ -6,14 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
   <title>Character Counter</title>
 </head>
 
 <body>
-  <h1>Real Time Character/Word Counter</h1>
+  <h1>Character/Word Counter</h1>
   <main>
     <aside>
-      <button id="count-characters">Count Characters</button>
+      <button id="count-characters" >Count Characters</button>
       <button type="button" id="word-counter">Count Words</button>
     </aside>
     <p id="description">hidden</p>
@@ -30,6 +33,7 @@
         <span id="remaining-words">2000</span>
       </p>
     </section>
+    <button class="resetBtn">Reset</button>
   </main>
   <script src="script.js"></script>
 </body>

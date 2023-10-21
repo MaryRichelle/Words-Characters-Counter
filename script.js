@@ -1,9 +1,17 @@
 
-window.addEventListener("DOMContentLoaded", init)
+window.addEventListener("DOMContentLoaded", () => {
+  init()
+  document.querySelector(".resetBtn").addEventListener("click", () => {
+    location.reload()
+  })
+
+})
 
 const remaining = (counterValue) => {
+  const MAX_WORD_COUNT = 2000;
+
   const remainingWords = document.getElementById("remaining-words");
-  const remainingWordCount = 2000 - counterValue;
+  const remainingWordCount = MAX_WORD_COUNT - counterValue;
   remainingWords.innerText = remainingWordCount;
 }
 
@@ -68,7 +76,6 @@ function init() {
   wordCounterBtn.addEventListener("click", () => {
     enableTextArea()
     disabledBtnFun(wordCounterBtn, characterCounterBtn)
-    updateWordCount();
     counterDescription("Words")
     textArea.addEventListener("input", updateWordCount);
   });
@@ -81,5 +88,4 @@ function init() {
     textArea.addEventListener("input", updateCharacterCount);
     counterDescription("Characters")
   });
-
 }

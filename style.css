@@ -5,6 +5,8 @@
 }
 body {
   background: #212534;
+  font-family: 'Inter', sans-serif;
+font-family: 'PT Sans Narrow', sans-serif;
 }
 h1 {
   text-align: center;
@@ -12,16 +14,15 @@ h1 {
 }
 main {
   width: 100%;
-  margin: auto;
+  margin: 1% auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 2rem;
+  gap: 1rem;
   padding-block: 0.5rem;
   background-color: inherit;
   border-radius: 6px;
   color: #fff;
-  margin-top: 3%;
   position: relative;
   border: 8px solid;
   border-image: linear-gradient(to right, #5ddcff, #3c67e3, #4e00c2) 5;
@@ -55,8 +56,7 @@ main:hover:after {
   opacity: 0;
 }
 
-#word-counter,
-#count-characters {
+button {
   width: 30%;
   background-color: #1c1d25;
   height: 3rem;
@@ -97,7 +97,10 @@ aside {
   margin-top: 5%;
   font-size: 1.2rem;
 }
-
+.resetBtn{
+width: 50%;
+margin: auto;
+}
 
 @keyframes spin {
   0% {

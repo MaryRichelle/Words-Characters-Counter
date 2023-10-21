@@ -12,5 +12,5 @@ A small app count words and characters
 - Css
 - JavaScript
 
-![](assets/desktop.png)
-![](assets/mobile.png)
+![Desktop preview](assets/desktop.png)
+![Mobile Preview](assets/mobile.png)
