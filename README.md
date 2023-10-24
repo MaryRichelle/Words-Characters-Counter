@@ -1,10 +1,11 @@
-# word/character-Counter  
+# words/characters-Counter  
 
 A small app count words and characters  
 
 - while writing some text
 - copy pasting
-[Live Demo](https://mr-characters-words-counter.netlify.app/)  
+
+## [Live Demo](https://mr-characters-words-counter.netlify.app/)  
 
 ## Stack Used
 
